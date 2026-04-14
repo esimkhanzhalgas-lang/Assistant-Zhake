@@ -71,4 +71,49 @@ body.dark-theme {
 body.dark-theme .card {
     background-color: #2d2d2d;
     color: white;
+    /* Беттің жалпы фоны */
+body {
+    background: #f0f2f5;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* КАРТОЧКАЛАРДЫ БІР ҚАТАРҒА ҚОЮ */
+.cards-container {
+    display: flex; 
+    flex-wrap: wrap; /* Экран тарылса астына түседі */
+    justify-content: center; 
+    gap: 20px; /* Арақашықтық */
+    margin-top: 30px;
+}
+
+/* КАРТОЧКА СТИЛІ */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s; /* Анимация үшін */
+}
+
+/* HOVER - ҮСТІНЕ АПАРҒАНДАҒЫ ЭФФЕКТ */
+.card:hover {
+    transform: translateY(-10px); /* Жоғары көтерілу */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* БАТЫРМАЛАР (Сілтемелер) */
+.card a {
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
 }
