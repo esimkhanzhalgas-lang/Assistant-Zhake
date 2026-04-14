@@ -1,183 +1,74 @@
+/* 1. Негізгі бет параметрлері */
 body {
-    font-family: Arial, sans-serif;
-    transition: background 0.3s, color 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f6; /* Жұмсақ ашық түс */
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-}
-
-[span_1](start_span)/* Карточкалар контейнері - Десктопта 3 қатар, Мобильде 1 баған[span_1](end_span) */
-.cards-container {
+    padding: 40px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.3s ease; [span_3](start_span)/* Тақырып ауысқандағы анимация[span_3](end_span) */
 }
 
+[span_4](start_span)/* 2. Тақырып стилі[span_4](end_span) */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+[span_5](start_span)/* 3. КАРТОЧКАЛАР КОНТЕЙНЕРІ[span_5](end_span) */
+.cards-container {
+    display: flex; /* Карточкаларды қатарға тізеді */
+    flex-wrap: wrap; /* Экран тар болса астына түсіреді */
+    justify-content: center; /* Ортаға жинайды */
+    gap: 20px; /* Арақашықтық */
+    max-width: 1200px;
+}
+
+[span_6](start_span)/* 4. ЖЕКЕ КАРТОЧКА СТИЛІ[span_6](end_span) */
 .card {
     background: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px; [span_7](start_span)/* Десктоптағы ені[span_7](end_span) */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s; [span_2](start_span)/* Hover эффект[span_2](end_span) */
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Чат бөлімі */
-.chat-section {
-    margin-top: 40px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-}
-
-#chat-window {
-    height: 200px;
-    border: 1px solid #ddd;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-[span_3](start_span)/* Қараңғы тақырып стилі[span_3](end_span) */
-body.dark-theme {
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
-
-body.dark-theme .card, body.dark-theme .chat-section {
-    background-color: #2d2d2d;
-    color: white;
-/* Карточкалар контейнері */
-.cards-container {
-    display: flex; /* Карточкаларды қатар қою */
-    flex-wrap: wrap; /* Сыймаса келесі жолға түсіру */
-    gap: 20px; /* Арақашықтық */
-    justify-content: center; /* Ортаға қою */
-    padding: 20px;
-/* Жалпы бет параметрлері */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #2d3436;
-    line-height: 1.6;
-    padding: 40px 20px;
-    transition: background 0.3s ease;
-}
-
-/* Басты тақырып */
-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #2d3436;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* КАРТОЧКАЛАР КОНТЕЙНЕРІ - Жинақы тұру үшін */
-.cards-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap; /* Экран тар болса астына түседі */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* КАРТОЧКА СТИЛІ */
-.card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px); /* Шыны эффектісі */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 30px;
-    width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hover анимация */
+    transition: all 0.3s ease; [span_8](start_span)/* Анимация үшін[span_8](end_span) */
 }
 
-/* Hover-эффект (3-тапсырма талабы) */
+[span_9](start_span)/* 5. HOVER-ЭФФЕКТ[span_9](end_span) */
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 1);
+    transform: translateY(-10px); /* Жоғары жылжу */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Көлеңкенің қалыңдауы */
 }
 
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #0984e3;
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #636e72;
-    margin-bottom: 20px;
-}
-
-/* Ресми сайт батырмасы */
+[span_10](start_span)/* 6. БАТЫРМАЛАР (Сілтемелер)[span_10](end_span) */
 .card a {
     display: inline-block;
-    padding: 10px 20px;
-    background: #0984e3;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #3498db;
     color: white;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 5px;
     text-align: center;
-    font-weight: 600;
-    transition: background 0.3s ease;
 }
 
-.card a:hover {
-    background: #74b9ff;
+[span_11](start_span)/* 7. АДАПТИВТІЛІК (Мобильді нұсқа)[span_11](end_span) */
+@media (max-width: 320px) {
+    .card {
+        width: 100%; [span_12](start_span)/* Бір бағанға жиналу[span_12](end_span) */
+    }
 }
 
-/* Чат және Тәжірибе бөлімдері */
-.chat-section, .experience {
-    max-width: 800px;
-    margin: 60px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-/* Қараңғы тақырып (4-тапсырма) */
+[span_13](start_span)/* 8. ҚАРАҢҒЫ ТАҚЫРЫП[span_13](end_span) */
 body.dark-theme {
-    background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
-    color: #dfe6e9;
-}
-
-body.dark-theme .card, body.dark-theme .chat-section {
-    background: rgba(45, 52, 54, 0.9);
+    background-color: #1a1a1a;
     color: white;
 }
-
-body.dark-theme .card p {
-    color: #b2bec3;
-}
+body.dark-theme .card {
+    background-color: #2d2d2d;
+    color: white;
 }
