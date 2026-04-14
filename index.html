@@ -1,72 +1,57 @@
 <!DOCTYPE html>
 <html lang="kk">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Әзірлеушіге арналған ЖИ-құралдары</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Әзірлеушіге арналған ЖИ-құралдары</title>
+    <title>AI Tools for Developers</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        [span_0](start_span)<h1>Әзірлеушіге арналған ЖИ-құралдары</h1>[span_0](end_span)
+        <h1>Әзірлеушіге арналған ЖИ</h1>
+        <p>Болашақтың құралдарымен танысыңыз</p>
     </header>
 
-    <main>
-        <section class="cards-container">
-            <div class="card">
-                <h3>GitHub Copilot</h3>
-                [span_1](start_span)<p>Кодты автоматты түрде толықтыратын ЖИ-көмекші.[span_1](end_span) [span_2](start_span)Ол функцияларды жазуға және қателерді табуға көмектеседі.[span_2](end_span)</p>
-                [span_3](start_span)<a href="https://github.com/features/copilot" target="_blank">Ресми сайт</a>[span_3](end_span)
-            </div>
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3>GitHub Copilot</h3>
+            <p>Кодты нақты уақытта жазуға көмектесетін ақылды көмекші.</p>
+            <a href="https://github.com/features/copilot" target="_blank">Ресми сайт</a>
+        </div>
 
-            <div class="card">
-                <h3>ChatGPT</h3>
-                [span_4](start_span)<p>Күрделі алгоритмдерді түсіндіруге және код жазуға арналған әмбебап ЖИ.[span_4](end_span) [span_5](start_span)Сұрақтарға жылдам жауап береді.[span_5](end_span)</p>
-                [span_6](start_span)<a href="https://chatgpt.com" target="_blank">Ресми сайт</a>[span_6](end_span)
-            </div>
+        <div class="card">
+            <div class="card-icon">💬</div>
+            <h3>ChatGPT</h3>
+            <p>Күрделі алгоритмдерді түсіндіруге және логика құруға арналған ЖИ.</p>
+            <a href="https://chatgpt.com" target="_blank">Ресми сайт</a>
+        </div>
 
-            <div class="card">
-                <h3>Claude</h3>
-                [span_7](start_span)<p>Мәтінмен және кодпен жұмыс істеуге арналған қуатты ЖИ моделі.[span_7](end_span) [span_8](start_span)Аналитикалық тапсырмаларды жақсы орындайды.[span_8](end_span)</p>
-                [span_9](start_span)<a href="https://claude.ai" target="_blank">Ресми сайт</a>[span_9](end_span)
-            </div>
-        </section>
+        <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3>Claude AI</h3>
+            <p>Мәтіндік және техникалық тапсырмаларды жоғары деңгейде орындайды.</p>
+            <a href="https://claude.ai" target="_blank">Ресми сайт</a>
+        </div>
+    </div>
 
-        <section class="chat-section">
-            [span_10](start_span)<h2>ЖИ Чат</h2>[span_10](end_span)
-            <div id="chat-window"></div>
-            [span_11](start_span)<input type="text" id="user-input" placeholder="Сұрақ қойыңыз...">[span_11](end_span)
-            [span_12](start_span)<button id="send-btn">Жіберу</button>[span_12](end_span)
-            [span_13](start_span)<p>Сұраныстар саны: <span id="counter">0</span></p>[span_13](end_span)
-        </section>
+    <section class="chat-section">
+        <h2>ЖИ Чат</h2>
+        <div id="chat-window"></div>
+        <div class="input-group">
+            <input type="text" id="user-input" placeholder="Сұрақ қойыңыз...">
+            <button id="send-btn">Жіберу</button>
+        </div>
+        <p class="counter-text">Сұраныстар саны: <span id="counter">0</span></p>
+    </section>
 
-        <section class="experience">
-            [span_14](start_span)<h2>Менің тәжірибем</h2>[span_14](end_span)
-            [span_15](start_span)<p id="exp-text">Бұл жобаны жасау барысында мен ЖИ құралдарын кодты құрылымдау үшін пайдаландым.[span_15](end_span)</p>
-            [span_16](start_span)<button id="theme-toggle">Қараңғы тақырып</button>[span_16](end_span)
-        </section>
-    </main>
+    <section class="experience">
+        <h2>Менің тәжірибем</h2>
+        <p>Бұл жоба ЖИ құралдарын веб-әзірлеуге енгізуді үйретеді.</p>
+        <button id="theme-toggle">Тақырыпты ауыстыру</button>
+    </section>
 
     <script src="script.js"></script>
 </body>
-    <section class="chat-section">
-    <h2>ЖИ Ассистентпен сөйлесу</h2>
-    <div id="chat-window" style="height: 200px; border: 1px solid #ccc; overflow-y: auto; margin-bottom: 10px; padding: 10px;">
-        </div
-            <div class="cards-container">
-    <div class="card">
-        <h3>GitHub Copilot</h3>
-        <p>Сипаттамасы...</p>
-        <a href="...">Ресми сайт</a>
-    </div>
-    </div>
-    <input type="text" id="user-input" placeholder="Сұрақ қойыңыз...">
-    <button id="send-btn">Жіберу</button>
-    <p>Сұраныстар саны: <span id="counter">0</span></p> </section>
 </html>
