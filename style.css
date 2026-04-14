@@ -65,20 +65,119 @@ body.dark-theme .card, body.dark-theme .chat-section {
     gap: 20px; /* Арақашықтық */
     justify-content: center; /* Ортаға қою */
     padding: 20px;
+/* Жалпы бет параметрлері */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Карточка стилі */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2d3436;
+    line-height: 1.6;
+    padding: 40px 20px;
+    transition: background 0.3s ease;
+}
+
+/* Басты тақырып */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2d3436;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* КАРТОЧКАЛАР КОНТЕЙНЕРІ - Жинақы тұру үшін */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap; /* Экран тар болса астына түседі */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* КАРТОЧКА СТИЛІ */
 .card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    width: 300px; /* Ені */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Шыны эффектісі */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hover анимация */
 }
 
-/* Hover-эффект (30 баллдық талап) */
+/* Hover-эффект (3-тапсырма талабы) */
 .card:hover {
-    transform: translateY(-10px); /* Жоғары жылжу */
-    box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Көлеңкені қалыңдату */
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #0984e3;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #636e72;
+    margin-bottom: 20px;
+}
+
+/* Ресми сайт батырмасы */
+.card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0984e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.card a:hover {
+    background: #74b9ff;
+}
+
+/* Чат және Тәжірибе бөлімдері */
+.chat-section, .experience {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Қараңғы тақырып (4-тапсырма) */
+body.dark-theme {
+    background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+    color: #dfe6e9;
+}
+
+body.dark-theme .card, body.dark-theme .chat-section {
+    background: rgba(45, 52, 54, 0.9);
+    color: white;
+}
+
+body.dark-theme .card p {
+    color: #b2bec3;
+}
 }
