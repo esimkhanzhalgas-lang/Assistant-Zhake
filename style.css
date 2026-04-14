@@ -58,4 +58,27 @@ body.dark-theme {
 body.dark-theme .card, body.dark-theme .chat-section {
     background-color: #2d2d2d;
     color: white;
+/* Карточкалар контейнері */
+.cards-container {
+    display: flex; /* Карточкаларды қатар қою */
+    flex-wrap: wrap; /* Сыймаса келесі жолға түсіру */
+    gap: 20px; /* Арақашықтық */
+    justify-content: center; /* Ортаға қою */
+    padding: 20px;
+}
+
+/* Карточка стилі */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px; /* Ені */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация */
+}
+
+/* Hover-эффект (30 баллдық талап) */
+.card:hover {
+    transform: translateY(-10px); /* Жоғары жылжу */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2); /* Көлеңкені қалыңдату */
 }
