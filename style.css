@@ -1,119 +1,132 @@
-/* 1. Негізгі бет параметрлері */
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f7f6; /* Жұмсақ ашық түс */
+/* Базалық баптаулар */
+* {
     margin: 0;
-    padding: 40px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7ff;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: background 0.3s ease; [span_3](start_span)/* Тақырып ауысқандағы анимация[span_3](end_span) */
+    padding: 50px 20px;
+    transition: 0.4s;
 }
 
-[span_4](start_span)/* 2. Тақырып стилі[span_4](end_span) */
-h1 {
-    color: #2c3e50;
+header {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-[span_5](start_span)/* 3. КАРТОЧКАЛАР КОНТЕЙНЕРІ[span_5](end_span) */
-.cards-container {
-    display: flex; /* Карточкаларды қатарға тізеді */
-    flex-wrap: wrap; /* Экран тар болса астына түсіреді */
-    justify-content: center; /* Ортаға жинайды */
-    gap: 20px; /* Арақашықтық */
-    max-width: 1200px;
+header h1 {
+    font-size: 2.5rem;
+    color: #1a2a6c;
 }
 
-[span_6](start_span)/* 4. ЖЕКЕ КАРТОЧКА СТИЛІ[span_6](end_span) */
+/* КАРТОЧКАЛАРДЫ ОРТАҒА ЖИНАУ */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Экран тар болса астына түседі */
+    max-width: 1100px;
+}
+
+/* КАРТОЧКА ДИЗАЙНЫ */
 .card {
     background: white;
-    border-radius: 15px;
-    padding: 25px;
-    width: 300px; [span_7](start_span)/* Десктоптағы ені[span_7](end_span) */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s ease; [span_8](start_span)/* Анимация үшін[span_8](end_span) */
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #eee;
 }
 
-[span_9](start_span)/* 5. HOVER-ЭФФЕКТ[span_9](end_span) */
 .card:hover {
-    transform: translateY(-10px); /* Жоғары жылжу */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Көлеңкенің қалыңдауы */
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-[span_10](start_span)/* 6. БАТЫРМАЛАР (Сілтемелер)[span_10](end_span) */
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #1a2a6c;
+}
+
 .card a {
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-[span_11](start_span)/* 7. АДАПТИВТІЛІК (Мобильді нұсқа)[span_11](end_span) */
-@media (max-width: 320px) {
-    .card {
-        width: 100%; [span_12](start_span)/* Бір бағанға жиналу[span_12](end_span) */
-    }
-}
-
-[span_13](start_span)/* 8. ҚАРАҢҒЫ ТАҚЫРЫП[span_13](end_span) */
-body.dark-theme {
-    background-color: #1a1a1a;
-    color: white;
-}
-body.dark-theme .card {
-    background-color: #2d2d2d;
-    color: white;
-    /* Беттің жалпы фоны */
-body {
-    background: #f0f2f5;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-/* КАРТОЧКАЛАРДЫ БІР ҚАТАРҒА ҚОЮ */
-.cards-container {
-    display: flex; 
-    flex-wrap: wrap; /* Экран тарылса астына түседі */
-    justify-content: center; 
-    gap: 20px; /* Арақашықтық */
-    margin-top: 30px;
-}
-
-/* КАРТОЧКА СТИЛІ */
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s; /* Анимация үшін */
-}
-
-/* HOVER - ҮСТІНЕ АПАРҒАНДАҒЫ ЭФФЕКТ */
-.card:hover {
-    transform: translateY(-10px); /* Жоғары көтерілу */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* БАТЫРМАЛАР (Сілтемелер) */
-.card a {
-    display: block;
-    margin-top: 15px;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 10px 25px;
     background: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
 }
+
+.card a:hover {
+    background: #0056b3;
+}
+
+/* ЧАТ БӨЛІМІ */
+.chat-section {
+    margin-top: 50px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#chat-window {
+    height: 150px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ҚАРАҢҒЫ ТАҚЫРЫП */
+body.dark-theme {
+    background: #121212;
+    color: white;
+}
+body.dark-theme .card, body.dark-theme .chat-section {
+    background: #1e1e1e;
+    border-color: #333;
+    color: white;
+}
+body.dark-theme .card h3 { color: #bb86fc; }
