@@ -129,4 +129,60 @@ body.dark-theme .card, body.dark-theme .chat-section {
     border-color: #333;
     color: white;
 }
-body.dark-theme .card h3 { color: #bb86fc; }
+body.dark-theme .card h3 { color: #bb86fc; }#chat-container {
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#chat-window {
+    height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80% ;
+}
+
+.ai-message {
+    background: #e1f5fe;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: #dcf8c6;
+    align-self: flex-end;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+#user-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-btn {
+    margin-left: 5px;
+    padding: 8px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
