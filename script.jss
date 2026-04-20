@@ -1,34 +1,45 @@
-// Сұраныс санауышы үшін айнымалы
-let count = 0;
-
-// 1. Қараңғы тақырыпты ауыстыру функциясы
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
+document.getElementById('send-btn').addEventListener('click', function() {
+    sendMessage();
 });
 
-// 2. ЖИ-ге сұраныс жіберу және санауышты жаңарту
-const sendBtn = document.getElementById('send-btn');
-const userInput = document.getElementById('user-input');
-const chatWindow = document.getElementById('chat-window');
-const counterDisplay = document.getElementById('counter');
-
-sendBtn.addEventListener('click', () => {
-    const text = userInput.value;
-    if (text.trim() !== "") {
-        // Санауышты арттыру
-        count++;
-        counterDisplay.innerText = count;
-
-        // Пайдаланушының сұрағын чатқа шығару
-        chatWindow.innerHTML += <p><b>Сен:</b> ${text}</p>;
-        
-        // ЖИ жауабының имитациясы (API кілтінсіз тесттік нұсқа)
-        setTimeout(() => {
-            chatWindow.innerHTML += <p><b>ЖИ:</b> Мен бұл сұрақты өңдеп жатырмын...</p>;
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-        }, 500);
-
-        userInput.value = ""; // Енгізу өрісін тазарту
+document.getElementById('user-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendMessage();
     }
 });
+
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const chatWindow = document.getElementById('chat-window');
+    
+    if (input.value.trim() === "") return;
+
+    // 1. Пайдаланушының хабарламасын қосу
+    const userDiv = document.createElement('div');
+    userDiv.className = 'message user-message';
+    userDiv.textContent = input.value;
+    chatWindow.appendChild(userDiv);
+
+    const userText = input.value.toLowerCase();
+    input.value = ""; // Мәтінді тазалау
+
+    // 2. ЖИ жауабын имитациялау (Кідіріспен)
+    setTimeout(() => {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'message ai-message';
+        
+        // Қарапайым логикалық жауаптар
+        if (userText.includes("сәлем")) {
+            aiDiv.textContent = "Сәлем! Сізге қалай көмектесе аламын?";
+        } else if (userText.includes("кімсің")) {
+            aiDiv.textContent = "Мен Zhake-нің алғашқы ЖИ ассистентімін!";
+        } else if (userText.includes("код")) {
+            aiDiv.textContent = "Код жазу — бұл өнер. Қандай тілде көмек керек?";
+        } else {
+            aiDiv.textContent = "Бұл өте қызықты сұрақ! Мен әлі үйреніп жатырмын.";
+        }
+        
+        chatWindow.appendChild(aiDiv);
+        chatWindow.scrollTop = chatWindow.scrollHeight; // Төменге автоматты айналдыру
+    }, 1000);
+}
