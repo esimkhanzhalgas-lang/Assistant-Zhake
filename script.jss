@@ -1,66 +1,52 @@
-const GROQ_KEY = "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";
-let count = 0;
+// 3-тапсырма: API арқылы чат
+const API_KEY = "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";
+let requestCount = 0;
 
 /**
- * Хабарлама жіберу және ЖИ-ден жауап алу функциясы
- * @param {string} text - Пайдаланушы енгізген мәтін
+ * Хабарлама жіберу функциясы
  */
 async function sendMessage() {
-    const userInput = document.getElementById('userInput');
-    const chatBox = document.getElementById('chatBox');
-    const text = userInput.value.trim();
+    const input = document.getElementById('chatInput');
+    const display = document.getElementById('chatMessages');
+    const counter = document.getElementById('requestCount');
 
-    if (!text) return;
+    if (!input.value.trim()) return;
 
-    // Санауышты арттыру (4-тапсырма)
-    count++;
-    document.getElementById('requestCount').innerText = count;
+    // Сұраныс санауышы
+    requestCount++;
+    counter.innerText = requestCount;
 
-    chatBox.innerHTML += `<p><b>Сен:</b> ${text}</p>`;
-    userInput.value = "";
+    const userText = input.value;
+    display.innerHTML += `<div><b>Сен:</b> ${userText}</div>`;
+    input.value = "";
 
     try {
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${GROQ_KEY}`
+                'Authorization': `Bearer ${API_KEY}`
             },
             body: JSON.stringify({
                 model: "llama-3.1-8b-instant",
-                messages: [{role: "user", content: text}]
+                messages: [{role: "user", content: userText}]
             })
         });
+
         const data = await response.json();
-        const aiMsg = data.choices[0].message.content;
-        chatBox.innerHTML += `<p style="color: #6366f1"><b>ЖИ:</b> ${aiMsg}</p>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    } catch (e) {
-        chatBox.innerHTML += `<p>Қате шықты...</p>`;
+        const aiText = data.choices[0].message.content;
+        display.innerHTML += `<div style="color: #10a37f"><b>ЖИ:</b> ${aiText}</div>`;
+        display.scrollTop = display.scrollHeight;
+    } catch (error) {
+        display.innerHTML += `<div>Қате: Байланыс үзілді.</div>`;
     }
 }
 
-/**
- * Қараңғы және ашық тақырыпты ауыстыру
- */
+// Тақырыпты ауыстыру
 document.getElementById('themeToggle').addEventListener('click', () => {
-    const body = document.documentElement;
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    body.setAttribute('data-theme', newTheme);
+    const html = document.documentElement;
+    const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', theme);
 });
-
-/**
- * Айналдыру кезінде карточкалардың көрінуі (Intersection Observer)
- */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-});
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 document.getElementById('sendBtn').addEventListener('click', sendMessage);
