@@ -1,47 +1,66 @@
+const GROQ_KEY = "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";
+let count = 0;
+
+/**
+ * Хабарлама жіберу және ЖИ-ден жауап алу функциясы
+ * @param {string} text - Пайдаланушы енгізген мәтін
+ */
 async function sendMessage() {
-    const key = apiKeyField.value.trim();
+    const userInput = document.getElementById('userInput');
+    const chatBox = document.getElementById('chatBox');
     const text = userInput.value.trim();
 
-    if (!key) { 
-        alert("API кілтті енгізіңіз!"); 
-        return; 
-    }
     if (!text) return;
 
-    appendMessage(text, 'user-message');
+    // Санауышты арттыру (4-тапсырма)
+    count++;
+    document.getElementById('requestCount').innerText = count;
+
+    chatBox.innerHTML += `<p><b>Сен:</b> ${text}</p>`;
     userInput.value = "";
 
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'message bot-message';
-    typingDiv.innerHTML = '<div class="message-content">Ойланып жатырмын...</div>';
-    chatMessages.appendChild(typingDiv);
-
     try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${key}`
+                'Authorization': `Bearer ${GROQ_KEY}`
             },
             body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: [{ role: "user", content: text }]
+                model: "llama-3.1-8b-instant",
+                messages: [{role: "user", content: text}]
             })
         });
-
         const data = await response.json();
-        chatMessages.removeChild(typingDiv);
-
-        if (response.ok) {
-            typeEffect(data.choices[0].message.content);
-        } else {
-            // Қате туралы толық ақпаратты шығару
-            console.error("OpenAI Error:", data);
-            appendMessage("Қате: " + data.error.message, 'bot-message');
-        }
-    } catch (error) {
-        chatMessages.removeChild(typingDiv);
-        console.error("Network Error:", error);
-        appendMessage("Байланыс қатесі: Интернетті немесе API-ді тексеріңіз.", 'bot-message');
+        const aiMsg = data.choices[0].message.content;
+        chatBox.innerHTML += `<p style="color: #6366f1"><b>ЖИ:</b> ${aiMsg}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (e) {
+        chatBox.innerHTML += `<p>Қате шықты...</p>`;
     }
 }
+
+/**
+ * Қараңғы және ашық тақырыпты ауыстыру
+ */
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const body = document.documentElement;
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+});
+
+/**
+ * Айналдыру кезінде карточкалардың көрінуі (Intersection Observer)
+ */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.getElementById('sendBtn').addEventListener('click', sendMessage);
