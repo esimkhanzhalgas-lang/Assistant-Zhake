@@ -9,60 +9,51 @@
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <h1>Әзірлеушіге арналған ЖИ-құралдары</h1>
-        <button id="themeToggle" class="btn"><i class="fas fa-moon"></i> Түсті ауыстыру</button>
+        <button id="themeToggle" class="theme-btn">
+            <i class="fas fa-adjust"></i> Тақырыпты ауыстыру
+        </button>
     </header>
 
     <main class="container">
-        <section class="ai-cards">
+        <section class="ai-grid">
             <div class="card fade-in">
-                <i class="fab fa-github icon"></i>
-                <h3>GitHub Copilot</h3>
-                <p>Кодты нақты уақытта толықтырып, функцияларды автоматты жазатын нейрожелі.</p>
-                <ul>
-                    <li>Кодты авто-толықтыру</li>
-                    <li>Тесттер жазу</li>
-                </ul>
-                <a href="https://github.com/features/copilot" target="_blank">Ресми сайт</a>
+                <i class="fab fa-github"></i>
+                <h2>GitHub Copilot</h2>
+                <p>Кодты нақты уақытта жазуға көмектесетін ЖИ-ассистент. Ол сіздің жазу стиліңізге бейімделеді.</p>
+                <a href="https://github.com/features/copilot" target="_blank" class="link">Ресми сайт</a>
             </div>
 
             <div class="card fade-in">
-                <i class="fas fa-comment-dots icon"></i>
-                <h3>ChatGPT</h3>
-                <p>Күрделі алгоритмдерді түсіндіруге және кодтағы қателерді табуға арналған чат-бот.</p>
-                <ul>
-                    <li>Кодты рефакторингтеу</li>
-                    <li>Құжаттама жасау</li>
-                </ul>
-                <a href="https://chatgpt.com" target="_blank">Ресми сайт</a>
+                <i class="fas fa-comments"></i>
+                <h2>ChatGPT</h2>
+                <p>Күрделі сұрақтарға жауап беретін және кодтағы қателерді талдайтын қуатты модель.</p>
+                <a href="https://chatgpt.com" target="_blank" class="link">Ресми сайт</a>
             </div>
 
             <div class="card fade-in">
-                <i class="fas fa-brain icon"></i>
-                <h3>Claude</h3>
-                <p>Үлкен көлемдегі код файлдарын талдауға және логикалық тапсырмаларды орындауға шебер.</p>
-                <ul>
-                    <li>Файдарды талдау</li>
-                    <li>Прототиптеу</li>
-                </ul>
-                <a href="https://claude.ai" target="_blank">Ресми сайт</a>
+                <i class="fas fa-robot"></i>
+                <h2>Claude</h2>
+                <p>Үлкен мәтіндермен жұмыс істеуге және логикалық есептерді шешуге арналған ЖИ.</p>
+                <a href="https://claude.ai" target="_blank" class="link">Ресми сайт</a>
             </div>
         </section>
 
-        <section class="experience fade-in">
+        <section class="reflection fade-in">
             <h2>Менің тәжірибем</h2>
-            <p><strong>Жұмысты орындауда қандай құрал көмектесті?</strong> Бұл жобаны жасауда маған Groq (Llama 3.1) және ChatGPT құралдары көмектесті. Олар HTML құрылымын жылдам құруға және CSS анимацияларын реттеуге мүмкіндік берді.</p>
-            <p><strong>ЖИ нені дұрыс жасамады?</strong> Кейде ЖИ API мекенжайларын ескі нұсқада беріп қойды, мен оны Groq құжаттамасына қарап, fetch сұраныстарын қолмен түзеттім.</p>
-            <p><strong>5 жылдан кейін не болады?</strong> ЖИ 5 жылдан кейін әзірлеушілерді алмастырмайды, бірақ "код жазушы" мамандығын "жүйе архитекторы" деңгейіне көтереді. Программистер код жазбай, ЖИ-ге тапсырма берумен айналысады.</p>
+            <div class="reflection-box">
+                <p><strong>1. Ең көп көмектескен құрал:</strong> Маған Groq API және ChatGPT код құрылымын түсінуде көп көмектесті.</p>
+                <p><strong>2. ЖИ-мен жұмыс:</strong> Кейде ЖИ ескірген CSS кодтарын ұсынды, мен оларды флексбокс арқылы қолмен түзеттім.</p>
+                <p><strong>3. Болашақ:</strong> 5 жылдан кейін ЖИ әзірлеушілердің орнын баспайды, бірақ жұмысын 10 есе жылдамдатады.</p>
+            </div>
         </section>
 
         <section class="chat-section fade-in">
-            <h2>ЖИ-мен байланыс</h2>
-            <p>Сұраныстар саны: <span id="requestCount">0</span></p>
-            <div id="chatBox" class="chat-box"></div>
-            <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Сұрақ қойыңыз...">
+            <h2>ЖИ-мен сөйлесу (Сұраныстар: <span id="requestCount">0</span>)</h2>
+            <div id="chatMessages" class="chat-display"></div>
+            <div class="chat-controls">
+                <input type="text" id="chatInput" placeholder="Сұрағыңызды жазыңыз...">
                 <button id="sendBtn">Жіберу</button>
             </div>
         </section>
